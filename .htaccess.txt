@@ -1,0 +1,15 @@
+<IfModule mod_mime.c>
+  AddEncoding gzip .gz
+  AddEncoding br .br
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.js\.gz$">
+    Header set Content-Encoding gzip
+    Header set Content-Type "application/javascript"
+  </FilesMatch>
+  <FilesMatch "\.js\.br$">
+    Header set Content-Encoding br
+    Header set Content-Type "application/javascript"
+  </FilesMatch>
+</IfModule>
